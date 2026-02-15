@@ -88,34 +88,50 @@ function inferChoiceCount(text, answerValue) {
   return Math.max(4, answerValue || 4);
 }
 
-function parseQuestionsFromText(fullText) {
+function cleanPrompt(text) {
+  return text
+    .replace(/\[(?:No|NO)\.?\s*\d{1,3}\]/g, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+function parseChoicesFromPrompt(prompt) {
+  const t = toHalf(prompt).replace(/\s+/g, ' ');
+  const re = /([1-9][0-9]?)\s*[\.．]\s*(.*?)(?=(?:\s*[1-9][0-9]?\s*[\.．]\s*)|$)/g;
+  const parsed = [];
+  for (const m of t.matchAll(re)) {
+    const text = (m[2] || '').trim();
+    if (!text) continue;
+    parsed.push({ no: Number(m[1]), text });
+  }
+  if (parsed.length === 0) return [];
+
+  // 1..N が連番で出ている場合のみ選択肢として採用
+  parsed.sort((a, b) => a.no - b.no);
+  for (let i = 0; i < parsed.length; i++) {
+    if (parsed[i].no !== i + 1) return [];
+  }
+  return parsed.map((p) => p.text);
+}
+
+function parseQuestionBlocks(fullText) {
   const text = toHalf(fullText);
-  const headerRe = /〔第[^\]]+?問〕/g;
-  const headers = [...text.matchAll(headerRe)].map((m) => ({ index: m.index, token: m[0] }));
+  const headerRe = /〔第[^〕]+問〕/g;
+  const headers = [...text.matchAll(headerRe)].map((m) => ({ index: m.index }));
+  const blocks = [];
 
-  const noRe = /\[(?:No|NO)\.?\s*([0-9]{1,3})\]/g;
-  const allNos = [...text.matchAll(noRe)].map((m) => ({ index: m.index, no: Number(m[1]), end: m.index + m[0].length }));
-  const validNos = allNos.filter((v) => !text.slice(v.end, v.end + 8).includes('から'));
-
-  const out = [];
-  let prevEnd = 0;
-  for (const v of validNos) {
-    const header = [...headers].reverse().find((h) => h.index <= v.index);
-    const start = Math.max(prevEnd, header ? header.index : 0);
-    const body = text.slice(start, v.index).trim();
-    if (body.length < 20) {
-      prevEnd = v.end;
-      continue;
-    }
-    out.push({ no: v.no, text: body });
-    prevEnd = v.end;
+  for (let i = 0; i < headers.length; i++) {
+    const start = headers[i].index;
+    const end = i + 1 < headers.length ? headers[i + 1].index : text.length;
+    const body = text.slice(start, end).trim();
+    if (body.length < 30) continue;
+    const nos = new Set();
+    const noRe = /\[(?:No|NO)\.?\s*([0-9]{1,3})\]/g;
+    for (const m of body.matchAll(noRe)) nos.add(Number(m[1]));
+    if (nos.size === 0) continue;
+    blocks.push({ text: cleanPrompt(body), nos });
   }
-
-  const dedup = new Map();
-  for (const q of out) {
-    if (!dedup.has(q.no) || dedup.get(q.no).text.length < q.text.length) dedup.set(q.no, q);
-  }
-  return new Map([...dedup.entries()]);
+  return blocks;
 }
 
 function parseCsvRows(csv) {
@@ -140,19 +156,21 @@ async function build() {
 
     const qPages = await loadPdfItems(qPath);
     const qText = qPages.map((p) => itemsToLines(p).join('\n')).join('\n\n');
-    const qMap = parseQuestionsFromText(qText);
+    const qBlocks = parseQuestionBlocks(qText);
 
     const aPages = await loadPdfItems(aPath);
     const aMap = parseAnswerMapFromPages(aPages);
 
     const questions = [];
     for (const [no, answer] of [...aMap.entries()].sort((x, y) => x[0] - y[0])) {
-      const q = qMap.get(no);
-      if (!q) continue;
-      const choiceCount = inferChoiceCount(q.text, answer);
+      const qBlock = qBlocks.find((b) => b.nos.has(no));
+      if (!qBlock) continue;
+      const choices = parseChoicesFromPrompt(qBlock.text);
+      const choiceCount = choices.length > 0 ? choices.length : inferChoiceCount(qBlock.text, answer);
       questions.push({
         no,
-        prompt: q.text,
+        prompt: qBlock.text,
+        choices,
         choice_count: choiceCount,
         answer
       });

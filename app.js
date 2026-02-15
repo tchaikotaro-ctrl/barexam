@@ -83,6 +83,7 @@
           subject: set.subject,
           no: q.no,
           prompt: q.prompt,
+          choices: q.choices || [],
           choiceCount: q.choice_count,
           answer: q.answer
         });
@@ -188,7 +189,10 @@
 
   function renderChoices(rec) {
     els.choices.innerHTML = "";
-    const count = Math.max(2, Number(rec.choiceCount || 4));
+    const hasChoiceTexts = Array.isArray(rec.choices) && rec.choices.length > 0;
+    const count = hasChoiceTexts
+      ? rec.choices.length
+      : Math.max(Number(rec.answer || 0), Math.max(2, Number(rec.choiceCount || 4)));
     for (let i = 1; i <= count; i++) {
       const label = document.createElement("label");
       label.className = "choice";
@@ -197,7 +201,8 @@
       input.name = "choice";
       input.value = String(i);
       label.appendChild(input);
-      label.appendChild(document.createTextNode(`選択肢 ${i}`));
+      const text = hasChoiceTexts ? `${i}. ${rec.choices[i - 1] || ""}` : `選択肢 ${i}`;
+      label.appendChild(document.createTextNode(text));
       els.choices.appendChild(label);
     }
   }
