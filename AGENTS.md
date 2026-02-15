@@ -91,6 +91,9 @@
 - Sent urgent follow-up deployment request to Kento:
   - Email sent to `kento0614nintendo@gmail.com` (subject: `[barexam][至急] Pages未反映の対応依頼`).
   - GitHub issue comment posted: `https://github.com/tchaikotaro-ctrl/barexam/issues/1#issuecomment-3903608618`
+- Sent additional email to Kento about deploy mismatch on custom domain:
+  - Subject: `[barexam][要対応] 公開ファイル不整合の修正依頼`
+  - Requested full redeploy, cache purge, and verification that `app.js` points to `data/short_answer_quiz_items.json`.
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
