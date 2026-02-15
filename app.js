@@ -77,7 +77,7 @@
 
   function buildFilters(records) {
     const subjects = ["すべて", ...new Set(records.map((r) => r.subject))];
-    const years = ["すべて", ...new Set(records.map((r) => r.year)).sort().reverse()];
+    const years = ["すべて", ...Array.from(new Set(records.map((r) => r.year))).sort().reverse()];
 
     subjects.forEach((s) => {
       const o = document.createElement("option");
