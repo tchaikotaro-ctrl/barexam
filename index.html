@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>予備試験短答式 問題演習</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Zen+Old+Mincho:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="hero">
+    <p class="eyebrow">Pre-Bar Exam Drill</p>
+    <h1>予備試験短答式 問題演習ツール</h1>
+    <p class="lead">令和5年〜令和7年の短答式問題と正解を、科目別に演習できます。</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls">
+      <h2>演習設定</h2>
+      <div class="row">
+        <label for="subject">科目</label>
+        <select id="subject"></select>
+      </div>
+      <div class="row">
+        <label for="year">年度</label>
+        <select id="year"></select>
+      </div>
+      <div class="row inline">
+        <button id="prev" type="button">前へ</button>
+        <button id="next" type="button">次へ</button>
+        <button id="shuffle" type="button">ランダム</button>
+      </div>
+      <div class="row">
+        <label class="check"><input id="showOnlyUnchecked" type="checkbox"> 未チェックのみ表示</label>
+      </div>
+      <div class="progress-wrap">
+        <div id="progressText">進捗: 0 / 0</div>
+        <div class="progress"><span id="progressBar"></span></div>
+      </div>
+    </section>
+
+    <section class="panel question">
+      <h2 id="cardTitle">読み込み中...</h2>
+      <p id="meta" class="meta"></p>
+
+      <div class="actions">
+        <a id="openQuestion" class="btn" href="#" target="_blank" rel="noopener noreferrer">問題PDFを開く</a>
+        <button id="revealAnswer" class="btn ghost" type="button">解答を表示</button>
+        <a id="openAnswer" class="btn hidden" href="#" target="_blank" rel="noopener noreferrer">解答PDFを開く</a>
+      </div>
+
+      <div class="note-wrap">
+        <label for="memo">学習メモ</label>
+        <textarea id="memo" rows="5" placeholder="この年度・科目の気づきをメモ"></textarea>
+      </div>
+
+      <div class="row">
+        <label class="check"><input id="checked" type="checkbox"> このセットを完了済みにする</label>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Data source: 法務省 司法試験予備試験公開資料</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

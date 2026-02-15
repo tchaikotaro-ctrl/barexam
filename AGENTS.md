@@ -30,6 +30,32 @@
   - `data/short_answer_questions.csv`
   - `README.md` (subject-wise short-answer PDF list)
 - Added extraction script: `scripts/extract_short_answer.py`.
+- Extracted short-answer answer keys (`正解及び配点`) by subject from:
+  - `https://www.moj.go.jp/jinji/shihoushiken/jinji07_00289.html` (令和7年)
+  - `https://www.moj.go.jp/jinji/shihoushiken/jinji07_00258.html` (令和6年)
+  - `https://www.moj.go.jp/jinji/shihoushiken/jinji07_00164.html` (令和5年)
+- Generated:
+  - `data/short_answer_answers_by_subject.json`
+  - `data/short_answer_answers.csv`
+- Added extraction script: `scripts/extract_short_answer_answers.py`.
+- Merged short-answer question and answer lists by `year + subject`.
+- Generated:
+  - `data/short_answer_qa_by_subject.json`
+  - `data/short_answer_qa.csv`
+- Added merge script: `scripts/merge_short_answer_lists.py`.
+- Built a web-based short-answer drill tool:
+  - `index.html`
+  - `styles.css`
+  - `app.js`
+- Features:
+  - Subject/year filtering
+  - Random/next/prev navigation
+  - Open question PDF and reveal/open answer PDF
+  - Local memo and completion tracking (localStorage)
+  - Progress bar
+- Added publication handoff docs for Kento:
+  - `docs/KENTO_PUBLISH_REQUEST.md`
+  - `docs/DEPLOYMENT.md`
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.

@@ -1,0 +1,101 @@
+{
+  "source_pages": [
+    "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00289.html",
+    "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00258.html",
+    "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00164.html"
+  ],
+  "subjects": {
+    "憲法・行政法": [
+      {
+        "year": "令和7年",
+        "subject": "憲法・行政法",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001444173.pdf",
+        "pdf_id": "001444173",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00289.html"
+      },
+      {
+        "year": "令和6年",
+        "subject": "憲法・行政法",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001422569.pdf",
+        "pdf_id": "001422569",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00258.html"
+      },
+      {
+        "year": "令和5年",
+        "subject": "憲法・行政法",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001400882.pdf",
+        "pdf_id": "001400882",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00164.html"
+      }
+    ],
+    "民法・商法・民事訴訟法": [
+      {
+        "year": "令和7年",
+        "subject": "民法・商法・民事訴訟法",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001444174.pdf",
+        "pdf_id": "001444174",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00289.html"
+      },
+      {
+        "year": "令和6年",
+        "subject": "民法・商法・民事訴訟法",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001422570.pdf",
+        "pdf_id": "001422570",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00258.html"
+      },
+      {
+        "year": "令和5年",
+        "subject": "民法・商法・民事訴訟法",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001400886.pdf",
+        "pdf_id": "001400886",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00164.html"
+      }
+    ],
+    "刑法・刑事訴訟法": [
+      {
+        "year": "令和7年",
+        "subject": "刑法・刑事訴訟法",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001444175.pdf",
+        "pdf_id": "001444175",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00289.html"
+      },
+      {
+        "year": "令和6年",
+        "subject": "刑法・刑事訴訟法",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001422571.pdf",
+        "pdf_id": "001422571",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00258.html"
+      },
+      {
+        "year": "令和5年",
+        "subject": "刑法・刑事訴訟法",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001400884.pdf",
+        "pdf_id": "001400884",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00164.html"
+      }
+    ],
+    "一般教養科目": [
+      {
+        "year": "令和7年",
+        "subject": "一般教養科目",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001444176.pdf",
+        "pdf_id": "001444176",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00289.html"
+      },
+      {
+        "year": "令和6年",
+        "subject": "一般教養科目",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001422572.pdf",
+        "pdf_id": "001422572",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00258.html"
+      },
+      {
+        "year": "令和5年",
+        "subject": "一般教養科目",
+        "answer_pdf_url": "https://www.moj.go.jp/content/001400885.pdf",
+        "pdf_id": "001400885",
+        "source_page": "https://www.moj.go.jp/jinji/shihoushiken/jinji07_00164.html"
+      }
+    ]
+  }
+}
