@@ -59,6 +59,8 @@
 - Created GitHub repository `tchaikotaro-ctrl/barexam`.
 - Pushed `202602/barexam` via subtree split to `https://github.com/tchaikotaro-ctrl/barexam` `main` branch.
 - Updated `docs/KENTO_PUBLISH_REQUEST.md` with the new repository URL and GitHub Pages publication request details.
+- Created GitHub issue to request publication from Kento:
+  - `https://github.com/tchaikotaro-ctrl/barexam/issues/1`
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
