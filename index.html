@@ -14,7 +14,7 @@
   <header class="hero">
     <p class="eyebrow">Pre-Bar Exam Drill</p>
     <h1>予備試験短答式 問題演習ツール</h1>
-    <p class="lead">令和5年〜令和7年の短答式問題と正解を、科目別に演習できます。</p>
+    <p class="lead">短答式問題を文字起こしし、選択肢形式で演習できます。</p>
   </header>
 
   <main class="layout">
@@ -27,6 +27,10 @@
       <div class="row">
         <label for="year">年度</label>
         <select id="year"></select>
+      </div>
+      <div class="row">
+        <label for="questionNo">問題番号</label>
+        <select id="questionNo"></select>
       </div>
       <div class="row inline">
         <button id="prev" type="button">前へ</button>
@@ -46,11 +50,15 @@
       <h2 id="cardTitle">読み込み中...</h2>
       <p id="meta" class="meta"></p>
 
+      <p id="prompt" class="prompt"></p>
+
+      <div id="choices" class="choices"></div>
+
       <div class="actions">
-        <a id="openQuestion" class="btn" href="#" target="_blank" rel="noopener noreferrer">問題PDFを開く</a>
-        <button id="revealAnswer" class="btn ghost" type="button">解答を表示</button>
-        <a id="openAnswer" class="btn hidden" href="#" target="_blank" rel="noopener noreferrer">解答PDFを開く</a>
+        <button id="checkAnswer" class="btn" type="button">答え合わせ</button>
+        <button id="revealAnswer" class="btn ghost" type="button">正解を表示</button>
       </div>
+      <p id="result" class="result"></p>
 
       <div class="note-wrap">
         <label for="memo">学習メモ</label>

@@ -4,11 +4,19 @@
 
 ## 問題演習ツール
 - エントリーポイント: `index.html`
-- データ: `data/short_answer_qa_by_subject.json`
+- データ: `data/short_answer_quiz_items.json`
 - ローカル起動例:
   - `cd 202602/barexam`
   - `python3 -m http.server 8000`
   - `http://localhost:8000` を開く
+- 形式:
+  - 問題文をテキスト表示
+  - 選択肢を番号選択（ラジオボタン）で回答
+  - 正解表示・進捗管理・メモ保存
+
+## テキスト抽出データ
+- 生成スクリプト: `scripts/build_quiz_items.mjs`
+- 生成物: `data/short_answer_quiz_items.json`
 
 ## ソースページ
 - https://www.moj.go.jp/jinji/shihoushiken/jinji07_00287.html

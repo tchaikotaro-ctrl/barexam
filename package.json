@@ -1,0 +1,19 @@
+{
+  "name": "barexam",
+  "version": "1.0.0",
+  "description": "指定された3ページから、**短答式試験のみ**を抽出した一覧です。",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "pdfjs-dist": "^5.4.624"
+  }
+}

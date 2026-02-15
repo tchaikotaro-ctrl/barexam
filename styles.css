@@ -150,6 +150,40 @@ button.ghost {
   color: #45525f;
 }
 
+.prompt {
+  white-space: pre-wrap;
+  line-height: 1.7;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+  max-height: 45vh;
+  overflow: auto;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.choice {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+}
+
+.result {
+  min-height: 1.5em;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
 .check {
   display: flex;
   align-items: center;

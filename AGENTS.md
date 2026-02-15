@@ -70,6 +70,10 @@
 - Requested Kento to deploy the TypeError fix to web:
   - Email sent to `kento0614nintendo@gmail.com` with deployment request.
   - GitHub issue comment posted: `https://github.com/tchaikotaro-ctrl/barexam/issues/1#issuecomment-3903442267`
+- Converted practice format from PDF links to text + multiple-choice UI:
+  - Added quiz dataset builder `scripts/build_quiz_items.mjs` (PDF text extraction via `pdfjs-dist`).
+  - Generated `data/short_answer_quiz_items.json`.
+  - Updated frontend (`index.html`, `styles.css`, `app.js`) to render text questions, numbered options, answer checking, and progress tracking.
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
