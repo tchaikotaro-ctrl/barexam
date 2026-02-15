@@ -82,6 +82,9 @@
 - Requested Kento to publish the latest text/choice rendering fixes:
   - Email sent to `kento0614nintendo@gmail.com`.
   - GitHub issue comment posted: `https://github.com/tchaikotaro-ctrl/barexam/issues/1#issuecomment-3903538654`
+- Requested Kento to apply latest `barexam` update again:
+  - Email sent to `kento0614nintendo@gmail.com` (subject: `[barexam] アップデート反映依頼`).
+  - GitHub issue comment posted: `https://github.com/tchaikotaro-ctrl/barexam/issues/1#issuecomment-3903582516`
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
