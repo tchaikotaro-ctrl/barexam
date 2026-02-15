@@ -79,6 +79,9 @@
   - Added explicit option-text parsing (e.g., `1. ... 2. ...`) and UI rendering of option labels.
 - Updated option label formatting in UI:
   - Display format changed to concatenate `choice number + choice text` (e.g., `1ア...`) and separate adjacent choices with spaces.
+- Requested Kento to publish the latest text/choice rendering fixes:
+  - Email sent to `kento0614nintendo@gmail.com`.
+  - GitHub issue comment posted: `https://github.com/tchaikotaro-ctrl/barexam/issues/1#issuecomment-3903538654`
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
