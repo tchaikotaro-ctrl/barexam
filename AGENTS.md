@@ -85,6 +85,12 @@
 - Requested Kento to apply latest `barexam` update again:
   - Email sent to `kento0614nintendo@gmail.com` (subject: `[barexam] アップデート反映依頼`).
   - GitHub issue comment posted: `https://github.com/tchaikotaro-ctrl/barexam/issues/1#issuecomment-3903582516`
+- Investigated non-reflecting publish status:
+  - Checked `https://tchaikotaro-ctrl.github.io/barexam/` and observed `Site not found`.
+  - Checked GitHub Pages API for `barexam` and got `404` (likely not enabled).
+- Sent urgent follow-up deployment request to Kento:
+  - Email sent to `kento0614nintendo@gmail.com` (subject: `[barexam][至急] Pages未反映の対応依頼`).
+  - GitHub issue comment posted: `https://github.com/tchaikotaro-ctrl/barexam/issues/1#issuecomment-3903608618`
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
