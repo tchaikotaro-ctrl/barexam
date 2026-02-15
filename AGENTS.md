@@ -94,6 +94,10 @@
 - Sent additional email to Kento about deploy mismatch on custom domain:
   - Subject: `[barexam][要対応] 公開ファイル不整合の修正依頼`
   - Requested full redeploy, cache purge, and verification that `app.js` points to `data/short_answer_quiz_items.json`.
+- Diagnosed current production outage and notified Kento:
+  - Observed `HTTP 530` / `error code: 1033` on `https://kotaro.kentoyy.com/barexam/`.
+  - Observed `404 Site not found` on `https://tchaikotaro-ctrl.github.io/barexam/`.
+  - Email sent to `kento0614nintendo@gmail.com` with remediation steps (Pages enablement, origin fix, cache purge).
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
