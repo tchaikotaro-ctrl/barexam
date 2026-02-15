@@ -67,6 +67,9 @@
   - Subject: `[barexam] GitHub Pages公開依頼（改行修正版）`
 - Fixed frontend runtime error in `app.js`:
   - Resolved `TypeError: (intermediate value).sort is not a function` by converting `Set` to `Array` before sorting year options.
+- Requested Kento to deploy the TypeError fix to web:
+  - Email sent to `kento0614nintendo@gmail.com` with deployment request.
+  - GitHub issue comment posted: `https://github.com/tchaikotaro-ctrl/barexam/issues/1#issuecomment-3903442267`
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
