@@ -201,7 +201,7 @@
       input.name = "choice";
       input.value = String(i);
       label.appendChild(input);
-      const text = hasChoiceTexts ? `${i}. ${rec.choices[i - 1] || ""}` : `選択肢 ${i}`;
+      const text = hasChoiceTexts ? `${i}${rec.choices[i - 1] || ""}` : `${i}`;
       label.appendChild(document.createTextNode(text));
       els.choices.appendChild(label);
     }

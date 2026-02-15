@@ -77,6 +77,8 @@
 - Fixed text extraction issues:
   - Prevented prompt truncation at `解答欄は` by switching from `[No]`-cut extraction to question-block extraction (`〔第n問〕` block based).
   - Added explicit option-text parsing (e.g., `1. ... 2. ...`) and UI rendering of option labels.
+- Updated option label formatting in UI:
+  - Display format changed to concatenate `choice number + choice text` (e.g., `1ア...`) and separate adjacent choices with spaces.
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
