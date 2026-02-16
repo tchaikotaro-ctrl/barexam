@@ -104,6 +104,9 @@
   - Updated frontend to load explanations and show explanation text at answer-check time (`app.js`, `index.html`, `styles.css`)
 - Updated explanation rendering:
   - Convert literal `\\n` sequences in explanation text into real line breaks before display.
+- Refreshed explanations from updated desktop source file:
+  - Source: `C:\\Users\\kotar\\OneDrive\\デスクトップ\\prebarexam`
+  - Regenerated `data/short_answer_explanations.json` via `scripts/import_prebarexam_explanations.py`.
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
