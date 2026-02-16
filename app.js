@@ -250,6 +250,14 @@
     renderExplanation(rec, selectedChoice());
   }
 
+  function normalizeExplanationText(text) {
+    return String(text || "")
+      .replace(/\\r\\n/g, "\n")
+      .replace(/\\n/g, "\n")
+      .replace(/\r\n/g, "\n")
+      .trim();
+  }
+
   function renderExplanation(rec, picked) {
     const exp = state.explanations[recordKey(rec)];
     if (!exp || !exp.options) {
@@ -258,10 +266,10 @@
     }
     const lines = [];
     if (picked && exp.options[String(picked)]?.basis) {
-      lines.push(`あなたの選択 ${picked}: ${exp.options[String(picked)].basis}`);
+      lines.push(`あなたの選択 ${picked}: ${normalizeExplanationText(exp.options[String(picked)].basis)}`);
     }
     if (exp.options[String(rec.answer)]?.basis) {
-      lines.push(`正解 ${rec.answer}: ${exp.options[String(rec.answer)].basis}`);
+      lines.push(`正解 ${rec.answer}: ${normalizeExplanationText(exp.options[String(rec.answer)].basis)}`);
     }
     if (lines.length === 0) {
       els.explanation.textContent = "この問題の解説データはまだありません。";
