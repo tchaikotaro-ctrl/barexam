@@ -1,5 +1,6 @@
 (() => {
   const DATA_PATH = "data/short_answer_quiz_items.json";
+  const EXPLANATION_PATH = "data/short_answer_explanations.json";
   const STORE_KEY = "barexam_short_answer_state_v2";
 
   const els = {
@@ -17,6 +18,7 @@
     checkAnswer: document.getElementById("checkAnswer"),
     revealAnswer: document.getElementById("revealAnswer"),
     result: document.getElementById("result"),
+    explanation: document.getElementById("explanation"),
     memo: document.getElementById("memo"),
     checked: document.getElementById("checked"),
     progressText: document.getElementById("progressText"),
@@ -25,15 +27,21 @@
 
   const state = {
     records: [],
+    explanations: {},
     filtered: [],
     currentIndex: 0,
     storage: loadStorage()
   };
 
-  fetch(DATA_PATH)
-    .then((r) => r.json())
-    .then((data) => {
-      state.records = flatten(data.sets || []);
+  Promise.all([
+    fetch(DATA_PATH).then((r) => r.json()),
+    fetch(EXPLANATION_PATH)
+      .then((r) => (r.ok ? r.json() : { by_question_key: {} }))
+      .catch(() => ({ by_question_key: {} }))
+  ])
+    .then(([quizData, expData]) => {
+      state.records = flatten(quizData.sets || []);
+      state.explanations = expData.by_question_key || {};
       buildFilters(state.records);
       applyFilterAndRender();
     })
@@ -171,6 +179,7 @@
       els.prompt.textContent = "";
       els.choices.innerHTML = "";
       els.result.textContent = "";
+      els.explanation.textContent = "";
       els.memo.value = "";
       els.checked.checked = false;
       return;
@@ -180,6 +189,7 @@
     els.meta.textContent = `${state.currentIndex + 1}件目 / ${state.filtered.length}件`;
     els.prompt.textContent = rec.prompt;
     els.result.textContent = "";
+    els.explanation.textContent = "";
     renderChoices(rec);
 
     const key = recordKey(rec);
@@ -218,6 +228,7 @@
     const picked = selectedChoice();
     if (!picked) {
       els.result.textContent = "選択肢を選んでください。";
+      els.explanation.textContent = "";
       return;
     }
     if (picked === rec.answer) {
@@ -229,12 +240,34 @@
     } else {
       els.result.textContent = `不正解です（あなた: ${picked} / 正解: ${rec.answer}）`;
     }
+    renderExplanation(rec, picked);
   }
 
   function revealAnswer() {
     const rec = currentRecord();
     if (!rec) return;
     els.result.textContent = `正解は ${rec.answer} です。`;
+    renderExplanation(rec, selectedChoice());
+  }
+
+  function renderExplanation(rec, picked) {
+    const exp = state.explanations[recordKey(rec)];
+    if (!exp || !exp.options) {
+      els.explanation.textContent = "この問題の解説データはまだありません。";
+      return;
+    }
+    const lines = [];
+    if (picked && exp.options[String(picked)]?.basis) {
+      lines.push(`あなたの選択 ${picked}: ${exp.options[String(picked)].basis}`);
+    }
+    if (exp.options[String(rec.answer)]?.basis) {
+      lines.push(`正解 ${rec.answer}: ${exp.options[String(rec.answer)].basis}`);
+    }
+    if (lines.length === 0) {
+      els.explanation.textContent = "この問題の解説データはまだありません。";
+      return;
+    }
+    els.explanation.textContent = lines.join("\\n");
   }
 
   function renderProgress() {

@@ -184,6 +184,17 @@ button.ghost {
   color: var(--accent-2);
 }
 
+.explanation {
+  white-space: pre-wrap;
+  margin: 8px 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cfd7df;
+  background: #f8fbff;
+  line-height: 1.6;
+  min-height: 2.2em;
+}
+
 .check {
   display: flex;
   align-items: center;

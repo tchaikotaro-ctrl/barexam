@@ -18,6 +18,13 @@
 - 生成スクリプト: `scripts/build_quiz_items.mjs`
 - 生成物: `data/short_answer_quiz_items.json`
 
+## 解説データ連携
+- 取込元（ローカル）: `C:\\Users\\kotar\\OneDrive\\デスクトップ\\prebarexam`
+- 取込スクリプト: `scripts/import_prebarexam_explanations.py`
+- 生成物: `data/short_answer_explanations.json`
+- 実行例:
+  - `python3 scripts/import_prebarexam_explanations.py`
+
 ## ソースページ
 - https://www.moj.go.jp/jinji/shihoushiken/jinji07_00287.html
 - https://www.moj.go.jp/jinji/shihoushiken/jinji07_00228.html

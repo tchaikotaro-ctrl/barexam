@@ -98,6 +98,10 @@
   - Observed `HTTP 530` / `error code: 1033` on `https://kotaro.kentoyy.com/barexam/`.
   - Observed `404 Site not found` on `https://tchaikotaro-ctrl.github.io/barexam/`.
   - Email sent to `kento0614nintendo@gmail.com` with remediation steps (Pages enablement, origin fix, cache purge).
+- Imported explanations from local JSON `prebarexam` and integrated with quiz UI:
+  - Added import script: `scripts/import_prebarexam_explanations.py`
+  - Generated: `data/short_answer_explanations.json`
+  - Updated frontend to load explanations and show explanation text at answer-check time (`app.js`, `index.html`, `styles.css`)
 
 ## Skills
 A skill is a set of local instructions to follow that is stored in a `SKILL.md` file. Below is the list of skills that can be used. Each entry includes a name, description, and file path so you can open the source for full instructions when using a specific skill.
